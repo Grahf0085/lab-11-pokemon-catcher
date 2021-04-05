@@ -47,7 +47,7 @@ section {
 
 header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     background-color: var(--color3);
     height: var(--header-height);
     box-shadow: var(--shadow);
@@ -110,4 +110,18 @@ footer {
         transform: rotate3d(10, 10, 10, 50deg) scale(1);
     }
 
+  }
+
+  .poke-list {
+      display: flex;
+      flex-direction: row;
+  }
+
+  button {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  input {
+      display: none;
   }
