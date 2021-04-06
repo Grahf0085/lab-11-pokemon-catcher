@@ -17,7 +17,7 @@ export function encounterPokemon(poke) {
 
     const pokedex = getPokedex();
 
-    const matched = findById(poke.id, pokedex);
+    const matched = findById(poke.pokemon, pokedex);
 
     if (matched) {
         matched.encountered++;
@@ -44,23 +44,10 @@ function setPokedex(parsedPokedex) {
 }
 
 export function caughtPokemon(poke) {
-
     const pokedex = getPokedex();
 
-    const matched = findById(poke.id, pokedex);
-
-    if (matched) {
-        matched.captured++;
-        matched.encountered++;
-    } else {
-        const newPoke = {
-            id: poke.pokemon,
-            captured: 1,
-            encountered: 1
-        };
-
-        pokedex.push(newPoke);
-    }
+    const matched = findById(poke.pokemon, pokedex);
+    matched.captured++;
 
     setPokedex(pokedex);
 
@@ -78,13 +65,30 @@ export function totalCaught() {
     return total;
 }
 
-export function totalEncountered() {
+export function totalEncountered(pokemon) {
 
     const pokedex = getPokedex();
+
     let total = 0;
 
-    for (let pokemon of pokedex) {
-        total += pokemon.encountered;
-    }
+    total += pokemon.encountered;
+
     return total;
+}
+
+export function capturesEncounters() {
+
+    let currentPoke = getPokedex();
+    let matched = findById(pokemonList[0].pokemon, currentPoke);
+
+    if (matched) {
+        capturesOne.textContent = matched.captured;
+        encountersOne.textContent = matched.encountered;
+    }
+
+    if (totalCaptured === 10) {
+
+        window.location = 'results.html';
+
+    }
 }
