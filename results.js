@@ -1,7 +1,8 @@
-import { getPokedex, totalCaught, totalEncountered, encounterPokemon } from './local-store.js';
+import { getPokedex } from './local-store.js';
 
 const pokemonList = getPokedex();
 const table = document.querySelector('table');
+const button = document.querySelector('button');
 
 
 export function renderLinePokemon(pokemon) {
@@ -11,8 +12,6 @@ export function renderLinePokemon(pokemon) {
     const tEncountered = document.createElement('td');
     const tCaptured = document.createElement('td');
     const tGotAway = document.createElement('td');
-
-    console.log(pokemon);
 
     tName.textContent = pokemon.id;
     tEncountered.textContent = pokemon.encountered;
@@ -30,3 +29,9 @@ for (let pokemon of pokemonList) {
     table.append(tr);
 }
 
+button.addEventListener('click', () => {
+
+    localStorage.clear();
+
+    window.location = 'index.html';
+});
