@@ -16,6 +16,8 @@ const thirdImage = document.getElementById('image-three');
 
 const button = document.querySelector('button');
 
+const totalCaught = document.getElementById('total-caught');
+let total = 0;
 
 function displayPokemon() {
     const pokemonList = pickThreeRandomPokemon();
@@ -31,11 +33,17 @@ button.addEventListener('click', () => {
 });
 
 firstPokemon.addEventListener('click', () => {
+    totalCaught.textContent = ++total;
+    displayPokemon();
 });
 
 secondPokemon.addEventListener('click', () => {
+    totalCaught.textContent = ++total;
+    displayPokemon();
 });
 
 thirdPokemon.addEventListener('click', () => {
+    totalCaught.textContent = ++total;
+    displayPokemon();
 });
 

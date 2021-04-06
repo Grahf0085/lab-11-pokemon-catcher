@@ -42,3 +42,27 @@ function setPokedex(parsedPokedex) {
 
     localStorage.setItem(POKEDEX, stringyPokedex);
 }
+
+export function caughtPokemon(poke) {
+
+    const pokedex = getPokedex();
+
+    const matched = findById(poke.id, pokedex);
+
+    if (matched) {
+        matched.captured++;
+        matched.encountered++;
+    } else {
+        const newPoke = {
+            id: poke.pokemon,
+            captured: 1,
+            encountered: 1
+        };
+
+        pokedex.push(newPoke);
+    }
+
+    setPokedex(pokedex);
+
+    return pokedex;
+}
