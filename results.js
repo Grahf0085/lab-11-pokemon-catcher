@@ -1,11 +1,19 @@
 import { getPokedex } from './local-store.js';
 
 const pokemonList = getPokedex();
-const table = document.querySelector('table');
+// const table = document.querySelector('table');
 const button = document.querySelector('button');
 
+const namesList = [];
+const encounteredList = [];
+const capturedList = [];
 
-export function renderLinePokemon(pokemon) {
+for (let pokemon of pokemonList) {
+    namesList.push(pokemon.id);
+    encounteredList.push(pokemon.encountered);
+    capturedList.push(pokemon.captured);
+}
+/* export function renderLinePokemon(pokemon) {
 
     const newTr = document.createElement('tr');
     const tName = document.createElement('td');
@@ -28,6 +36,36 @@ for (let pokemon of pokemonList) {
 
     table.append(tr);
 }
+*/
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, { //eslint-disable-line
+    type: 'bar',
+    data: {
+        labels: namesList,
+        datasets: [{
+            label: 'Captured',
+            data: capturedList,
+            backgroundColor: 'lightgreen',
+            borderColor: 'black',
+            borderWidth: 1
+        },
+        {
+            label: 'Encountered',
+            data: encounteredList,
+            backgroundColor: 'lightblue',
+            borderColor: 'black',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 
 button.addEventListener('click', () => {
 
@@ -35,3 +73,4 @@ button.addEventListener('click', () => {
 
     window.location = 'index.html';
 });
+
