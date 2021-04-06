@@ -2,7 +2,7 @@ import { findById } from './utils.js';
 
 const POKEDEX = 'POKEDEX';
 
-function getPokedex() {
+export function getPokedex() {
 
     const stringyPokedex = localStorage.getItem(POKEDEX);
 
@@ -74,6 +74,17 @@ export function totalCaught() {
 
     for (let pokemon of pokedex) {
         total += pokemon.captured;
+    }
+    return total;
+}
+
+export function totalEncountered() {
+
+    const pokedex = getPokedex();
+    let total = 0;
+
+    for (let pokemon of pokedex) {
+        total += pokemon.encountered;
     }
     return total;
 }
