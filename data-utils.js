@@ -27,3 +27,9 @@ export function pickThreeRandomPokemon() {
 
     return [pokemonOne, pokemonTwo, pokemonThree];
 }
+
+export function displayPokemon() {
+    const pokemonList = pickThreeRandomPokemon();
+
+    return pokemonList;
+}

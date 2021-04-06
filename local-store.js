@@ -66,3 +66,14 @@ export function caughtPokemon(poke) {
 
     return pokedex;
 }
+
+export function totalCaught() {
+
+    const pokedex = getPokedex();
+    let total = 0;
+
+    for (let pokemon of pokedex) {
+        total += pokemon.captured;
+    }
+    return total;
+}
