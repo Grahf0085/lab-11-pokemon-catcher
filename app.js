@@ -7,7 +7,6 @@
 import { displayPokemon } from './data-utils.js';
 import { caughtPokemon, getPokedex, getCaptured, getEncountered } from './local-store.js';
 import { findById } from './utils.js';
-import pokemonArray from './pokemon.js';
 
 const firstPokemon = document.getElementById('poke-one');
 const secondPokemon = document.getElementById('poke-two');

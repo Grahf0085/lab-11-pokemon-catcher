@@ -1,5 +1,4 @@
 import { findById } from './utils.js';
-import pokemonArray from './pokemon.js';
 
 const POKEDEX = 'POKEDEX';
 
