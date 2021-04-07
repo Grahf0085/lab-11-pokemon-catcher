@@ -47,6 +47,7 @@ export function caughtPokemon(poke) {
     const pokedex = getPokedex();
 
     const matched = findById(poke.pokemon, pokedex);
+
     matched.captured++;
 
     setPokedex(pokedex);
