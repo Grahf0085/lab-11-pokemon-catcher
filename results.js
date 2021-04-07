@@ -39,7 +39,6 @@ for (let pokemon of pokemonArray) {
     }
 }
 
-console.log(typeArray);
 /* export function renderLinePokemon(pokemon) {
 
     const newTr = document.createElement('tr');
@@ -95,7 +94,7 @@ var myChart = new Chart(ctx, { //eslint-disable-line
     }
 });
 
-var ctx = document.getElementById('mySecondChart').getContext('2d');
+var ctx = document.getElementById('mySecondChart').getContext('2d'); //eslint-disable-line
 var myChart = new Chart(ctx, { //eslint-disable-line
     type: 'bar',
     data: {
