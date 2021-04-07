@@ -8,6 +8,7 @@ const button = document.querySelector('button');
 const namesList = [];
 const encounteredList = [];
 const capturedList = [];
+const capturedNamedList = [];
 let typeArray = [
     { grass: 0 },
     { fire: 0 },
@@ -23,9 +24,32 @@ for (let pokemon of pokemonList) {
     capturedList.push(pokemon.captured);
 }
 
+for (let pokemon of pokemonList) {
+    if (pokemon.captured === 1) {
+        capturedNamedList.push(pokemon.id);
+    }
+    if (pokemon.captured === 2) {
+        capturedNamedList.push(pokemon.id);
+        capturedNamedList.push(pokemon.id);
+    }
+    if (pokemon.captured === 3) {
+        capturedNamedList.push(pokemon.id);
+        capturedNamedList.push(pokemon.id);
+        capturedNamedList.push(pokemon.id);
+    }
+    if (pokemon.captured === 4) {
+        capturedNamedList.push(pokemon.id);
+        capturedNamedList.push(pokemon.id);
+        capturedNamedList.push(pokemon.id);
+        capturedNamedList.push(pokemon.id);
+    }
+}
+
+console.log(capturedNamedList);
+
 for (let pokemon of pokemonArray) {
-    for (let i = 0; i < pokemonArray.length; i++) {
-        if (pokemon.pokemon === namesList[i]) {
+    for (let captured of capturedNamedList) {
+        if (pokemon.pokemon === captured) {
             if (pokemon.type_1 === 'grass') {
                 typeArray[0].grass++;
             } else if (pokemon.type_1 === 'fire') {
