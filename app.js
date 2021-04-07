@@ -5,8 +5,9 @@
 // set event listeners to update state and DOM
 
 import { displayPokemon } from './data-utils.js';
-import { caughtPokemon, getPokedex } from './local-store.js';
+import { caughtPokemon, getPokedex, getCaptured, getEncountered } from './local-store.js';
 import { findById } from './utils.js';
+import pokemonArray from './pokemon.js';
 
 const firstPokemon = document.getElementById('poke-one');
 const secondPokemon = document.getElementById('poke-two');
@@ -63,20 +64,12 @@ firstPokemon.addEventListener('click', () => {
     secondImage.src = pokemonList[1].url_image;
     thirdImage.src = pokemonList[2].url_image;
 
-    matchedOne = findById(pokemonList[0].pokemon, pokedex);
-    matchedTwo = findById(pokemonList[1].pokemon, pokedex);
-    matchedThree = findById(pokemonList[2].pokemon, pokedex);
-
-    console.log(matchedOne);
-    console.log(matchedTwo);
-    console.log(matchedThree);
-
-    capturesOne.textContent = matchedOne.captured;
-    encountersOne.textContent = matchedOne.encountered;
-    capturesTwo.textContent = matchedTwo.captured;
-    encountersTwo.textContent = matchedTwo.encountered;
-    capturesThree.textContent = matchedThree.captured;
-    encountersThree.textContent = matchedThree.encountered;
+    capturesOne.textContent = getCaptured(pokemonList[0]);
+    encountersOne.textContent = getEncountered(pokemonList[0]);
+    capturesTwo.textContent = getCaptured(pokemonList[1]);
+    encountersTwo.textContent = getEncountered(pokemonList[1]);
+    capturesThree.textContent = getCaptured(pokemonList[2]);
+    encountersThree.textContent = getEncountered(pokemonList[2]);
 });
 
 secondPokemon.addEventListener('click', () => {
@@ -92,22 +85,18 @@ secondPokemon.addEventListener('click', () => {
         window.location = 'results.html';
 
     }
-    console.log(pokedex);
 
     pokemonList = displayPokemon();
     firstImage.src = pokemonList[0].url_image;
     secondImage.src = pokemonList[1].url_image;
     thirdImage.src = pokemonList[2].url_image;
 
-    matchedOne = findById(pokemonList[0].pokemon, pokedex);
-    matchedTwo = findById(pokemonList[1].pokemon, pokedex);
-    matchedThree = findById(pokemonList[2].pokemon, pokedex);
-    capturesOne.textContent = matchedOne.captured;
-    encountersOne.textContent = matchedOne.encountered;
-    capturesTwo.textContent = matchedTwo.captured;
-    encountersTwo.textContent = matchedTwo.encountered;
-    capturesThree.textContent = matchedThree.captured;
-    encountersThree.textContent = matchedThree.encountered;
+    capturesOne.textContent = getCaptured(pokemonList[0]);
+    encountersOne.textContent = getEncountered(pokemonList[0]);
+    capturesTwo.textContent = getCaptured(pokemonList[1]);
+    encountersTwo.textContent = getEncountered(pokemonList[1]);
+    capturesThree.textContent = getCaptured(pokemonList[2]);
+    encountersThree.textContent = getEncountered(pokemonList[2]);
 
 });
 
@@ -129,15 +118,11 @@ thirdPokemon.addEventListener('click', () => {
     firstImage.src = pokemonList[0].url_image;
     secondImage.src = pokemonList[1].url_image;
     thirdImage.src = pokemonList[2].url_image;
-    console.log(pokedex);
 
-    matchedOne = findById(pokemonList[0].pokemon, pokedex);
-    matchedTwo = findById(pokemonList[1].pokemon, pokedex);
-    matchedThree = findById(pokemonList[2].pokemon, pokedex);
-    capturesOne.textContent = matchedOne.captured;
-    encountersOne.textContent = matchedOne.encountered;
-    capturesTwo.textContent = matchedTwo.captured;
-    encountersTwo.textContent = matchedTwo.encountered;
-    capturesThree.textContent = matchedThree.captured;
-    encountersThree.textContent = matchedThree.encountered;
+    capturesOne.textContent = getCaptured(pokemonList[0]);
+    encountersOne.textContent = getEncountered(pokemonList[0]);
+    capturesTwo.textContent = getCaptured(pokemonList[1]);
+    encountersTwo.textContent = getEncountered(pokemonList[1]);
+    capturesThree.textContent = getCaptured(pokemonList[2]);
+    encountersThree.textContent = getEncountered(pokemonList[2]);
 });

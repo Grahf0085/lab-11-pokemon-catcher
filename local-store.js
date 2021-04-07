@@ -1,4 +1,5 @@
 import { findById } from './utils.js';
+import pokemonArray from './pokemon.js';
 
 const POKEDEX = 'POKEDEX';
 
@@ -53,4 +54,24 @@ export function caughtPokemon(poke) {
     setPokedex(pokedex);
 
     return pokedex;
+}
+
+export function getCaptured(pokemonInput) {
+    const pokedex = getPokedex();
+
+    for (let pokemon of pokedex) {
+        if (pokemon.id === pokemonInput.pokemon) {
+            return pokemon.captured;
+        }
+    }
+}
+
+export function getEncountered(pokemonInput) {
+    const pokedex = getPokedex();
+
+    for (let pokemon of pokedex) {
+        if (pokemon.id === pokemonInput.pokemon) {
+            return pokemon.encountered;
+        }
+    }
 }
