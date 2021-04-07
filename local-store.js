@@ -54,23 +54,3 @@ export function caughtPokemon(poke) {
 
     return pokedex;
 }
-
-export function totalCaught() {
-
-    const pokedex = getPokedex();
-    let total = 0;
-
-    for (let pokemon of pokedex) {
-        total += pokemon.captured;
-    }
-    return total;
-}
-
-export function totalEncountered(pokemon) {
-
-    let total = 0;
-
-    total += pokemon.encountered;
-
-    return total;
-}
