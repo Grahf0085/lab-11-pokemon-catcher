@@ -63,7 +63,7 @@ firstPokemon.addEventListener('click', () => {
 secondPokemon.addEventListener('click', () => {
 
     pokemonList = displayPokemon();
-    caughtPokemon(pokemonList[0]);
+    caughtPokemon(pokemonList[1]);
     totalCaptured = totalCaught();
 
     firstImage.src = pokemonList[0].url_image;
@@ -86,17 +86,12 @@ secondPokemon.addEventListener('click', () => {
 
     }
 
-    if (totalCaptured === 10) {
-
-        window.location = 'results.html';
-
-    }
 });
 
 thirdPokemon.addEventListener('click', () => {
 
     pokemonList = displayPokemon();
-    caughtPokemon(pokemonList[0]);
+    caughtPokemon(pokemonList[2]);
     totalCaptured = totalCaught();
 
     firstImage.src = pokemonList[0].url_image;
@@ -119,9 +114,4 @@ thirdPokemon.addEventListener('click', () => {
 
     }
 
-    if (totalCaptured === 10) {
-
-        window.location = 'results.html';
-
-    }
 });
